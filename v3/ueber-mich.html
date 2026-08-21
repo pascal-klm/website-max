@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Über mich – Maximilian Heiland</title>
+  <meta name="description" content="Vom Quereinsteiger zum Aufbau einer deutschlandweiten Vertriebsorganisation im Energievertrieb.">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="nav">
+    <div class="wrap nav-inner">
+      <a class="logo" href="index.html">Maximilian Heiland</a>
+      <button class="nav-toggle" type="button" aria-label="Menü" aria-expanded="false"><span></span></button>
+      <ul class="nav-links">
+        <li><a href="ueber-mich.html" aria-current="page">Über mich</a></li>
+        <li><a href="moeglichkeit.html">Möglichkeit</a></li>
+        <li><a href="erfolgsgeschichten.html">Erfahrungen</a></li>
+        <li><a href="zusammenarbeit.html">Zusammenarbeit</a></li>
+      </ul>
+      <a class="btn" href="#anfragen">Zusammenarbeit anfragen</a>
+    </div>
+  </header>
+  <main>
+    <header class="page-head">
+      <div class="wrap">
+        <p class="eyebrow">Über mich</p>
+        <h1 class="display" style="font-size:clamp(40px,6vw,72px)"><span>Maximilian</span><span>Heiland</span></h1>
+        <p class="role">Vom Quereinsteiger zum Kopf einer der größten Organisationen im Energievertrieb.</p>
+      </div>
+    </header>
+    <section class="section" style="padding-top:8px">
+      <div class="wrap split">
+        <div class="photo">
+          <img src="../assets/images/portrait.jpg" alt="Porträt">
+        </div>
+        <div class="prose">
+          <p>Seit 2019 eine deutschlandweite Organisation mit <span class="em">800+</span> Partnern. Mehr als <span class="em">290.000</span> Strom- und Gasverträge. Über <span class="em">27 Millionen Euro</span> ans Team.</p>
+          <p>Begonnen ohne Branchenhintergrund. Aufbau über Systeme, Führung und die Bereitschaft, Menschen langfristig zu entwickeln – nicht über kurzfristige Versprechen.</p>
+          <p>Heute: Ausbildung zu Vertriebspartnern und Führungskräften. Struktur, Begleitung, eine Perspektive über den nächsten Monat hinaus.</p>
+        </div>
+      </div>
+    </section>
+    <section class="section soft">
+      <div class="wrap quote-block">
+        <p class="kicker">Haltung</p>
+        <h2>Klarheit vor Lautstärke. Wer kommt, bekommt System, Mentor und Einarbeitung – und die Erwartung, das Gelernte umzusetzen.</h2>
+      </div>
+    </section>
+    <section class="section">
+      <div class="wrap">
+        <div class="photo wide">
+          <img src="../assets/images/stage.jpg" alt="Bühne">
+        </div>
+        <div class="cards-4 mt-lg">
+          <div class="card"><p class="stat-num">800+</p><p class="stat-label">Partner</p></div>
+          <div class="card"><p class="stat-num">290k+</p><p class="stat-label">Verträge</p></div>
+          <div class="card"><p class="stat-num">7 Jahre</p><p class="stat-label">Erfahrung</p></div>
+          <div class="card"><p class="stat-num">27 Mio. €</p><p class="stat-label">ans Team</p></div>
+        </div>
+      </div>
+    </section>
+    <section class="contact" id="anfragen">
+      <div class="wrap contact-grid">
+        <div>
+          <p class="kicker">Nächster Schritt</p>
+          <h2>Zusammenarbeit anfragen</h2>
+          <p class="lede">Unverbindlich. Wir klären im Gespräch, ob es zu dir und deinen Zielen passt.</p>
+          <ul class="bullets">
+            <li>Persönlicher Rückruf, meist noch am selben Tag</li>
+            <li>Kein Startkapital, keine versteckte Verpflichtung</li>
+            <li>Auf Augenhöhe – ohne Druck</li>
+          </ul>
+        </div>
+        <form class="form js-contact" novalidate>
+          <div class="field"><label for="name">Name</label><input id="name" name="name" type="text" autocomplete="name" required></div>
+          <div class="field"><label for="phone">Telefonnummer</label><input id="phone" name="phone" type="tel" autocomplete="tel" required></div>
+          <div class="field"><label for="zip">Postleitzahl</label><input id="zip" name="zip" type="text" inputmode="numeric" maxlength="5" required></div>
+          <div class="field"><label for="email">E-Mail-Adresse</label><input id="email" name="email" type="email" autocomplete="email" required></div>
+          <div class="field full"><label class="check"><input type="checkbox" name="privacy" required><span>Ich habe die <a href="datenschutz.html">Datenschutzerklärung</a> gelesen und stimme zu.</span></label></div>
+          <button class="btn" type="submit">Jetzt Zusammenarbeit anfragen</button>
+          <p class="form-note">Dauert etwa 20 Sekunden.</p>
+          <p class="form-status" role="status"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+  <footer class="footer"><div class="wrap footer-inner"><span>© 2026 Maximilian Heiland</span><div><a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a></div></div></footer>
+  <script src="js/main.js"></script>
+  <script src="js/contact.js"></script>
+</body>
+</html>

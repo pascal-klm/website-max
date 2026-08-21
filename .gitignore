@@ -1,0 +1,12 @@
+# Original photos (too large; site uses assets/images)
+bilder/
+
+# Temp / local
+_tmp_*
+*.ogg
+*.wav
+*.cr2
+Thumbs.db
+.DS_Store
+.env
+.env.*

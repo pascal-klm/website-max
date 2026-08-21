@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ablauf – Maximilian Heiland</title>
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+  <header class="nav is-solid">
+    <div class="nav-inner">
+      <a class="logo" href="index.html">Heiland</a>
+      <button class="nav-toggle" type="button" aria-label="Menü" aria-expanded="false"><span></span></button>
+      <ul class="nav-links">
+        <li><a href="ueber-mich.html">Person</a></li>
+        <li><a href="moeglichkeit.html">Möglichkeit</a></li>
+        <li><a href="erfolgsgeschichten.html">Geschichten</a></li>
+        <li><a href="zusammenarbeit.html" aria-current="page">Ablauf</a></li>
+      </ul>
+      <a class="btn" href="#anfragen">Gespräch</a>
+    </div>
+  </header>
+  <main>
+    <header class="page-head">
+      <div class="wrap" data-reveal>
+        <p class="kicker">Ablauf</p>
+        <h1>Du musst nicht raten, wie es geht.</h1>
+        <p class="lede" style="margin-top:16px">Vorerfahrung ist nicht nötig. Ab Tag eins eine klare Einarbeitung.</p>
+      </div>
+    </header>
+    <section class="section" style="padding-top:0">
+      <div class="wrap split" data-reveal>
+        <div class="frame"><img src="../assets/images/awards.jpg" alt=""></div>
+        <div class="prose">
+          <p>Kundenansprache, Angebot, Abschluss, Team. Video Academy im eigenen Tempo. Calls und Präsenz. Ein Mentor, der an den Zielen bleibt.</p>
+          <p>Vier Säulen: Academy, Schulung, Mentor, Team. Kein Einzelbüro. Fragen haben einen Ort.</p>
+        </div>
+      </div>
+    </section>
+    <section class="section" style="padding-top:0">
+      <div class="wrap" data-reveal>
+        <div class="steps">
+          <article class="step"><h3>Gespräch</h3><p>Konzept, Erwartungen, Passung.</p></article>
+          <article class="step"><h3>Mentor</h3><p>Ein fester Mensch an deiner Seite.</p></article>
+          <article class="step"><h3>Einarbeitung</h3><p>Academy, Schulungen, erste Schritte.</p></article>
+          <article class="step"><h3>Umsetzen</h3><p>Feedback laufend – nicht irgendwann.</p></article>
+        </div>
+      </div>
+    </section>
+    <section class="contact" id="anfragen">
+      <div class="wrap contact-grid">
+        <div>
+          <p class="kicker">Einladung</p>
+          <h2>Wenn du unsicher bist, ist das Gespräch der richtige nächste Schritt.</h2>
+          <p class="lede">Kein Pitch. Ein Austausch – danach weißt du mehr.</p>
+          <ul class="assures">
+            <li>Unverbindlich. Kein Startkapital.</li>
+            <li>Wir rufen dich an, meist noch am selben Tag.</li>
+            <li>Du entscheidest, ob und wie es weitergeht.</li>
+          </ul>
+        </div>
+        <form class="form js-contact" novalidate>
+          <div class="field"><label for="name">Name</label><input id="name" name="name" required></div>
+          <div class="field"><label for="phone">Telefon</label><input id="phone" name="phone" type="tel" required></div>
+          <div class="field"><label for="zip">Postleitzahl</label><input id="zip" name="zip" maxlength="5" required></div>
+          <div class="field"><label for="email">E-Mail</label><input id="email" name="email" type="email" required></div>
+          <div class="field full"><label class="check"><input type="checkbox" name="privacy" required><span>Ich habe die <a href="datenschutz.html">Datenschutzerklärung</a> gelesen und bin einverstanden.</span></label></div>
+          <button class="btn" type="submit">Gespräch anfragen</button>
+          <p class="form-note">Zwanzig Sekunden. Danach rufen wir dich an.</p>
+          <p class="form-status" role="status"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+  <footer class="footer dark"><div class="wrap footer-inner"><span>© 2026 Maximilian Heiland</span><div><a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a></div></div></footer>
+  <div class="float-cta"><a class="btn" href="#anfragen">Unverbindlich sprechen</a></div>
+  <script src="js/main.js"></script>
+  <script src="js/contact.js"></script>
+</body>
+</html>
