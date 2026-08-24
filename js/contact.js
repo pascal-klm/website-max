@@ -41,27 +41,27 @@
       var privacy = form.elements.namedItem("privacy");
 
       if (!name.value.trim()) {
-        setStatus(status, "Bitte geben Sie Ihren Namen an.", "error");
+        setStatus(status, "Bitte deinen Namen angeben.", "error");
         name.focus();
         return;
       }
       if (!validPhone(phone.value)) {
-        setStatus(status, "Bitte geben Sie eine gültige Telefonnummer an.", "error");
+        setStatus(status, "Bitte eine gültige Telefonnummer angeben.", "error");
         phone.focus();
         return;
       }
       if (!validPlz(zip.value)) {
-        setStatus(status, "Bitte geben Sie eine fünfstellige Postleitzahl an.", "error");
+        setStatus(status, "Bitte eine fünfstellige Postleitzahl angeben.", "error");
         zip.focus();
         return;
       }
       if (!validEmail(email.value)) {
-        setStatus(status, "Bitte geben Sie eine gültige E-Mail-Adresse an.", "error");
+        setStatus(status, "Bitte eine gültige E-Mail-Adresse angeben.", "error");
         email.focus();
         return;
       }
       if (!privacy.checked) {
-        setStatus(status, "Bitte stimmen Sie der Datenschutzerklärung zu.", "error");
+        setStatus(status, "Bitte der Datenschutzerklärung zustimmen.", "error");
         privacy.focus();
         return;
       }
@@ -76,7 +76,7 @@
       if (!BREVO_FORM_URL) {
         setStatus(
           status,
-          "Vielen Dank. Wir haben Ihre Anfrage aufgenommen und melden uns persönlich.",
+          "Danke. Wir haben deine Anfrage aufgenommen und melden uns persönlich.",
           "ok"
         );
         form.reset();
@@ -96,7 +96,7 @@
         .then(function () {
           setStatus(
             status,
-            "Vielen Dank. Wir haben Ihre Anfrage erhalten und melden uns persönlich.",
+            "Danke. Wir haben deine Anfrage erhalten und melden uns persönlich.",
             "ok"
           );
           form.reset();
@@ -104,7 +104,7 @@
         .catch(function () {
           setStatus(
             status,
-            "Die Anfrage konnte nicht gesendet werden. Bitte versuchen Sie es erneut oder schreiben Sie an info@maximilian-heiland.de.",
+            "Die Anfrage konnte nicht gesendet werden. Bitte versuche es erneut oder schreib an info@maximilian-heiland.de.",
             "error"
           );
         });
