@@ -43,36 +43,82 @@ window.MH_TRACKING = {
       '" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>';
   });
 
-  var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  var blocks = document.querySelectorAll(".hero, .section, .stats, .page-head, .contact, .section-tight");
-  blocks.forEach(function (el) {
-    el.classList.add("reveal");
-  });
-  if (reduceMotion || !("IntersectionObserver" in window)) {
-    blocks.forEach(function (el) {
-      el.classList.add("is-in");
-    });
-  } else {
-    var observer = new IntersectionObserver(
-      function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("is-in");
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.12, rootMargin: "0px 0px -40px 0px" }
-    );
-    blocks.forEach(function (el) {
-      if (el.getBoundingClientRect().top < window.innerHeight - 48) {
-        el.classList.add("is-in");
-      } else {
-        observer.observe(el);
-      }
-    });
-  }
+  initCoverflow();
 })();
+
+function initCoverflow() {
+  var cover = document.querySelector(".coverflow");
+  if (!cover) return;
+
+  var deck = cover.querySelectorAll(".coverflow-slide");
+  var dots = cover.querySelectorAll(".coverflow-dot");
+  var counter = cover.querySelector(".coverflow-counter");
+  var stage = cover.querySelector(".coverflow-stage") || cover;
+  var index = 0;
+  var startX = 0;
+  var startY = 0;
+  var tracking = false;
+  var swiped = false;
+
+  function show(next) {
+    index = (next + deck.length) % deck.length;
+    deck.forEach(function (slide, i) {
+      slide.classList.remove("is-active", "is-prev", "is-next");
+      if (i === index) slide.classList.add("is-active");
+      else if (i === (index - 1 + deck.length) % deck.length) slide.classList.add("is-prev");
+      else if (i === (index + 1) % deck.length) slide.classList.add("is-next");
+    });
+    dots.forEach(function (dot, i) {
+      dot.classList.toggle("is-active", i === index);
+    });
+    if (counter) counter.textContent = index + 1 + " / " + deck.length;
+  }
+
+  dots.forEach(function (dot, i) {
+    dot.addEventListener("click", function () {
+      show(i);
+    });
+  });
+
+  deck.forEach(function (slide, i) {
+    slide.addEventListener("click", function () {
+      if (i !== index) show(i);
+    });
+  });
+
+  stage.addEventListener("pointerdown", function (event) {
+    if (event.pointerType === "mouse" && event.button !== 0) return;
+    startX = event.clientX;
+    startY = event.clientY;
+    tracking = true;
+    swiped = false;
+  });
+  stage.addEventListener("pointerup", function (event) {
+    if (!tracking) return;
+    tracking = false;
+    var dx = event.clientX - startX;
+    var dy = event.clientY - startY;
+    if (Math.abs(dx) < 40 || Math.abs(dx) < Math.abs(dy)) return;
+    swiped = true;
+    if (dx > 0) show(index - 1);
+    else show(index + 1);
+  });
+  stage.addEventListener("pointercancel", function () {
+    tracking = false;
+  });
+  stage.addEventListener(
+    "click",
+    function (event) {
+      if (!swiped) return;
+      event.preventDefault();
+      event.stopPropagation();
+      swiped = false;
+    },
+    true
+  );
+
+  show(0);
+}
 
 (function () {
   var STORAGE_KEY = "mh-consent-v1";

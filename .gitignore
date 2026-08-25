@@ -2,7 +2,9 @@
 bilder/
 
 # Temp / local
+.cursor/
 _tmp_*
+Instruction_*
 *.ogg
 *.wav
 *.cr2
