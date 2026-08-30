@@ -1,5 +1,5 @@
 /* Tracking-IDs hier eintragen. Leer = Dienst bleibt inaktiv und wird nicht geladen.
-   Sobald eine ID steht, erscheint das Consent-Banner automatisch. */
+   Das Consent-Banner erscheint beim ersten Besuch immer. */
 window.MH_TRACKING = {
   gaMeasurementId: "", // z. B. "G-XXXXXXXXXX"
   metaPixelId: "" // z. B. "123456789012345"
@@ -40,8 +40,11 @@ window.MH_TRACKING = {
     if (!raw) return;
     var title = box.getAttribute("data-title") || "Erfahrungsbericht";
     if (isLocalVideo(raw)) {
+      var poster = (box.getAttribute("data-poster") || "").trim() || raw.replace(/\.(mp4|webm|mov|m4v)(\?.*)?$/i, ".jpg");
       box.innerHTML =
-        '<video controls playsinline preload="metadata" title="' +
+        '<video controls playsinline preload="none" poster="' +
+        poster +
+        '" title="' +
         title.replace(/"/g, "&quot;") +
         '"><source src="' +
         raw +
@@ -156,10 +159,6 @@ function initCoverflow() {
   var analyticsInput;
   var marketingInput;
   var lastFocus;
-
-  function trackingReady() {
-    return Boolean(gaId || metaId);
-  }
 
   function readConsent() {
     try {
@@ -349,6 +348,6 @@ function initCoverflow() {
 
   var stored = readConsent();
   if (stored) applyConsent(stored);
-  else if (trackingReady()) openUi(false);
+  else openUi(false);
 })();
 
