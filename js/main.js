@@ -31,10 +31,30 @@ window.MH_TRACKING = {
     return url;
   }
 
+  function isLocalVideo(url) {
+    return /\.(mp4|webm|mov|m4v)(\?|$)/i.test(url);
+  }
+
   document.querySelectorAll(".embed[data-video]").forEach(function (box) {
-    var src = toEmbed(box.getAttribute("data-video").trim());
-    if (!src) return;
+    var raw = (box.getAttribute("data-video") || "").trim();
+    if (!raw) return;
     var title = box.getAttribute("data-title") || "Erfahrungsbericht";
+    if (isLocalVideo(raw)) {
+      box.innerHTML =
+        '<video controls playsinline preload="metadata" title="' +
+        title.replace(/"/g, "&quot;") +
+        '"><source src="' +
+        raw +
+        '" type="video/mp4"></video>';
+      box.querySelector("video").addEventListener("play", function () {
+        document.querySelectorAll(".embed video").forEach(function (other) {
+          if (other !== box.querySelector("video")) other.pause();
+        });
+      });
+      return;
+    }
+    var src = toEmbed(raw);
+    if (!src) return;
     box.innerHTML =
       '<iframe src="' +
       src +
@@ -72,6 +92,12 @@ function initCoverflow() {
       dot.classList.toggle("is-active", i === index);
     });
     if (counter) counter.textContent = index + 1 + " / " + deck.length;
+    deck.forEach(function (slide, i) {
+      if (i === index) return;
+      slide.querySelectorAll("video").forEach(function (video) {
+        video.pause();
+      });
+    });
   }
 
   dots.forEach(function (dot, i) {

@@ -1,6 +1,9 @@
 # Original photos (too large; site uses assets/images)
 bilder/
 
+# Original testimonial videos (too large; site uses assets/videos)
+testimonials/
+
 # Temp / local
 .cursor/
 _tmp_*
