@@ -632,11 +632,12 @@ h2 + .points,
 .video-card h3 {
   margin-top: var(--title-to-body);
   margin-bottom: 8px;
+  font-weight: 600;
 }
 
 .video-card p {
   color: var(--ink);
-  font-size: 17px;
+  font-size: 15px;
   font-weight: 600;
   line-height: 1.35;
 }
@@ -971,7 +972,7 @@ h2 + .points,
   list-style: none;
   position: relative;
   display: grid;
-  gap: 48px;
+  gap: 80px;
   margin-top: 56px;
 }
 
@@ -1008,27 +1009,31 @@ h2 + .points,
 .storyline-year {
   display: inline-flex;
   align-items: center;
-  gap: 2px;
+  position: relative;
 }
 
 .storyline-year::before {
   content: "";
-  flex-shrink: 0;
+  position: absolute;
+  top: 50%;
   width: 11px;
   height: 11px;
   border: 2px solid var(--accent);
   background: var(--bg);
   border-radius: 50%;
+  transform: translateY(-50%);
 }
 
-.storyline li:nth-child(odd) .storyline-year {
-  margin-left: -53px;
+.storyline li:nth-child(odd) .storyline-year::before {
+  left: -53px;
 }
 
 .storyline li:nth-child(even) .storyline-year {
-  flex-direction: row-reverse;
   margin-left: auto;
-  margin-right: -53px;
+}
+
+.storyline li:nth-child(even) .storyline-year::before {
+  right: -53px;
 }
 
 .storyline-photo {
@@ -1077,7 +1082,7 @@ h2 + .points,
   letter-spacing: -0.03em;
   line-height: 1.15;
   color: var(--ink);
-  margin-bottom: var(--title-to-body);
+  margin-bottom: 6px;
 }
 
 .storyline-text {
@@ -1717,7 +1722,7 @@ h2 + .points,
   }
 
   .storyline {
-    gap: 22px;
+    gap: 40px;
     margin-top: 24px;
   }
 
@@ -1752,15 +1757,16 @@ h2 + .points,
   .storyline li:nth-child(even) .storyline-year {
     display: inline-flex;
     flex-direction: row;
-    align-items: center;
-    gap: 2px;
-    margin-left: -34px;
+    margin-left: 0;
     margin-right: 0;
   }
 
-  .storyline-year::before {
-    position: static;
-    transform: none;
+  .storyline-year::before,
+  .storyline li:nth-child(odd) .storyline-year::before,
+  .storyline li:nth-child(even) .storyline-year::before {
+    left: -28px;
+    right: auto;
+    transform: translate(-50%, -50%);
   }
 
   .steps {

@@ -40,7 +40,7 @@ window.MH_TRACKING = {
     if (!raw) return;
     var title = box.getAttribute("data-title") || "Erfahrungsbericht";
     if (isLocalVideo(raw)) {
-      var poster = (box.getAttribute("data-poster") || "").trim() || raw.replace(/\.(mp4|webm|mov|m4v)(\?.*)?$/i, ".jpg");
+      var poster = (box.getAttribute("data-poster") || "").trim() || raw.replace(/\.(mp4|webm|mov|m4v)(\?.*)?$/i, ".jpg?v=sdr");
       box.innerHTML =
         '<video controls playsinline preload="none" poster="' +
         poster +
