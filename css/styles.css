@@ -1284,6 +1284,17 @@ h2 + .points,
   color: var(--ink);
 }
 
+.legal h4,
+.legal h5 {
+  font-family: var(--sans);
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 1.4;
+  margin: 20px 0 8px;
+  color: var(--ink);
+}
+
 .legal ul {
   max-width: 68ch;
   margin: 0 0 16px 1.15em;
